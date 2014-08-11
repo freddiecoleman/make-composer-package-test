@@ -43,6 +43,7 @@ class CommanderGenerateCommand extends Command {
         $base = $this->option('base');
 
         file_put_contents("{$base}/{$path}.php", "");
+        file_put_contents("{$base}/{$path}Handler.php", "");
 	}
 
 	/**
