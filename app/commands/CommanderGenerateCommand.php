@@ -37,17 +37,22 @@ class CommanderGenerateCommand extends Command {
 	 */
 	public function fire()
 	{
-		$this->info('All done!');
+		$path = $this->argument('path');
+        $segments = explode('/', $path);
+        $name = array_pop($segments);
+        $namespace = implode('\\', $segments);
 
-        $path = $this->argument('path');
+
         $base = $this->option('base');
         $template = file_get_contents(app_path('commands/templates/command.template'));
 
         $mustache = new Mustache_Engine;
 
-        $template = $mustache->render($template, ['name' => $path]);
+        $template = $mustache->render($template, ['name' => $name, 'namespace' => $namespace]);
 
         file_put_contents("{$base}/{$path}.php", $template);
+
+        $this->info('All done!');
 	}
 
 	/**
@@ -71,7 +76,7 @@ class CommanderGenerateCommand extends Command {
 	{
 		return array(
 			array('properties', null, InputOption::VALUE_OPTIONAL, 'List of properties to build.', null),
-			array('base', null, InputOption::VALUE_OPTIONAL, 'The base directory to begin from.', null),
+			array('base', null, InputOption::VALUE_OPTIONAL, 'The base directory to begin from.', './app'),
 		);
 	}
 
