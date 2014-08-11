@@ -11,20 +11,20 @@ class CommanderGenerateCommand extends Command {
 	 *
 	 * @var string
 	 */
-	protected $name = 'command:name';
+	protected $name = 'commander:generate';
 
 	/**
 	 * The console command description.
 	 *
 	 * @var string
 	 */
-	protected $description = 'Command description.';
+	protected $description = 'Generate command and handler classes.';
 
-	/**
-	 * Create a new command instance.
-	 *
-	 * @return void
-	 */
+    /**
+     * Create a new command instance.
+     *
+     * @return \CommanderGenerateCommand
+     */
 	public function __construct()
 	{
 		parent::__construct();
