@@ -1,3 +1,3 @@
 <?php 
 $I = new AcceptanceTester($scenario);
-$I->wantTo('perform actions and see result');
+$I->wantTo('generate both a command and a handler class.');

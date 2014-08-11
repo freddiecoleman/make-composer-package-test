@@ -9,6 +9,8 @@ modules:
     enabled:
         - PhpBrowser
         - AcceptanceHelper
+        - Cli
+        - Filesystem
     config:
         PhpBrowser:
             url: 'http://localhost/myapp/'
