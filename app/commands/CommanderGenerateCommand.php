@@ -38,6 +38,11 @@ class CommanderGenerateCommand extends Command {
 	public function fire()
 	{
 		$this->info('All done!');
+
+        $path = $this->argument('path');
+        $base = $this->option('base');
+
+        file_put_contents("{$base}/{$path}.php", "");
 	}
 
 	/**
