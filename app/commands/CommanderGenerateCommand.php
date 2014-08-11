@@ -37,7 +37,7 @@ class CommanderGenerateCommand extends Command {
 	 */
 	public function fire()
 	{
-		//
+		$this->info('All done!');
 	}
 
 	/**
@@ -48,7 +48,7 @@ class CommanderGenerateCommand extends Command {
 	protected function getArguments()
 	{
 		return array(
-			array('example', InputArgument::REQUIRED, 'An example argument.'),
+			array('path', InputArgument::REQUIRED, 'Path to the command class to generate.'),
 		);
 	}
 
@@ -60,7 +60,8 @@ class CommanderGenerateCommand extends Command {
 	protected function getOptions()
 	{
 		return array(
-			array('example', null, InputOption::VALUE_OPTIONAL, 'An example option.', null),
+			array('properties', null, InputOption::VALUE_OPTIONAL, 'List of properties to build.', null),
+			array('base', null, InputOption::VALUE_OPTIONAL, 'The base directory to begin from.', null),
 		);
 	}
 
