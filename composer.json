@@ -8,7 +8,8 @@
 	},
     "require-dev": {
         "phpspec/phpspec": "~2.0.0",
-        "codeception/codeception": "~2.0.0"
+        "codeception/codeception": "~2.0.0",
+        "mustache/mustache": "~2.6.0"
     },
 	"autoload": {
 		"classmap": [

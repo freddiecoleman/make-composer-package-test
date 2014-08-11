@@ -41,9 +41,13 @@ class CommanderGenerateCommand extends Command {
 
         $path = $this->argument('path');
         $base = $this->option('base');
+        $template = file_get_contents(app_path('commands/templates/command.template'));
 
-        file_put_contents("{$base}/{$path}.php", "");
-        file_put_contents("{$base}/{$path}Handler.php", "");
+        $mustache = new Mustache_Engine;
+
+        $template = $mustache->render($template, ['name' => $path]);
+
+        file_put_contents("{$base}/{$path}.php", $template);
 	}
 
 	/**
